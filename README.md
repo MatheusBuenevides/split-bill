@@ -54,7 +54,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/seu-usuario/split-bill-app.git
+   git clone https://github.com/MatheusBuenevides/split-bill-app.git
    cd split-bill-app
    ```
 
@@ -144,7 +144,7 @@ Essas cores são aplicadas no layout geral e nos componentes da aplicação para
 
 ## Contribuindo
 
-Se você quiser contribuir com o projeto, sinta-se à vontade para abrir pull requests ou relatar problemas no [repositório do GitHub](https://github.com/seu-usuario/split-bill-app).
+Se você quiser contribuir com o projeto, sinta-se à vontade para abrir pull requests ou relatar problemas no [repositório do GitHub](https://github.com/MatheusBuenevides/split-bill-app).
 
 ## Licença
 
