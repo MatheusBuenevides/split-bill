@@ -1,46 +1,151 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Divisor de Contas
 
-## Available Scripts
+Este projeto é um aplicativo para divisão de contas entre duas pessoas, onde as despesas são divididas por mês e associadas a perfis de usuários. O aplicativo permite a criação de perfis, adição de contas e visualização das despesas de cada perfil.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Criação de perfis**: Adicione perfis de usuários para associar despesas.
+- **Adição de contas**: Insira contas/despesas e associe-as aos perfis.
+- **Divisão de despesas**: Visualize a divisão das despesas de cada perfil.
+- **Navegação entre páginas**: Utilize uma sidebar para navegar entre as páginas da aplicação.
+- **Visualização de gastos por perfil**: Cada perfil tem sua página com detalhes sobre as despesas associadas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias Utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática ao código.
+- **Tailwind CSS**: Framework CSS para estilização rápida e eficiente.
+- **React Router**: Biblioteca para gerenciar navegação de páginas no React.
 
-### `npm test`
+## Estrutura do Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+├── public/
+│   ├── index.html
+├── src/
+│   ├── components/
+│   │   ├── BillInput.tsx
+│   │   ├── BillList.tsx
+│   │   ├── Sidebar.tsx
+│   ├── pages/
+│   │   ├── CreateProfilePage.tsx
+│   │   ├── ProfilePage.tsx
+│   │   ├── ProfileListPage.tsx
+│   ├── App.tsx
+│   ├── index.tsx
+├── tailwind.config.js
+├── tsconfig.json
+├── package.json
+└── README.md
+```
 
-### `npm run build`
+## Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de começar, certifique-se de ter o seguinte instalado em sua máquina:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** (versão 14 ou superior)
+- **npm** (gerenciador de pacotes do Node.js) ou **yarn**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalação
 
-### `npm run eject`
+Siga os passos abaixo para rodar o projeto localmente:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone o repositório**:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone https://github.com/seu-usuario/split-bill-app.git
+   cd split-bill-app
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Instale as dependências**:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   Se estiver usando `npm`:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   Ou se estiver usando `yarn`:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   yarn install
+   ```
+
+3. **Inicie o servidor de desenvolvimento**:
+
+   Com `npm`:
+
+   ```bash
+   npm start
+   ```
+
+   Ou com `yarn`:
+
+   ```bash
+   yarn start
+   ```
+
+   O projeto será iniciado em `http://localhost:3000`.
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
+
+### `npm start` ou `yarn start`
+
+Executa o app no modo de desenvolvimento.
+Abra [http://localhost:3000](http://localhost:3000) para ver o projeto no navegador.
+
+### `npm run build` ou `yarn build`
+
+Compila a aplicação para produção na pasta `build`. Ele otimiza o React para melhor desempenho.
+
+## Estrutura dos Componentes
+
+### 1. **`App.tsx`**
+
+Componente principal que gerencia o estado global da aplicação, como perfis, contas e o perfil ativo. Configura as rotas para as diferentes páginas.
+
+### 2. **`BillInput.tsx`**
+
+Componente para adicionar novas despesas, onde o usuário pode inserir uma descrição, valor e associar a um perfil.
+
+### 3. **`BillList.tsx`**
+
+Componente que exibe a lista de despesas divididas, mostrando a descrição, o perfil associado e o valor.
+
+### 4. **`Sidebar.tsx`**
+
+Componente de menu lateral que permite a navegação entre as páginas da aplicação.
+
+### 5. **Páginas**
+
+- **`CreateProfilePage.tsx`**: Página para criar novos perfis e gerenciar perfis existentes.
+- **`ProfilePage.tsx`**: Exibe as despesas associadas a um perfil específico.
+- **`ProfileListPage.tsx`**: Página para listar todos os perfis criados.
+
+## Estilização
+
+O projeto usa **Tailwind CSS** para estilização. A paleta de cores utilizada é a seguinte:
+
+- **#F5F5F5** (Fundo claro)
+- **#48CFCB** (Cor primária)
+- **#229799** (Cor secundária)
+- **#424242** (Texto)
+
+Essas cores são aplicadas no layout geral e nos componentes da aplicação para manter uma interface limpa e moderna.
+
+## Melhorias Futuras
+
+- Implementar autenticação para perfis.
+- Adicionar suporte para múltiplos usuários e perfis.
+- Melhorar o design responsivo para dispositivos móveis.
+
+## Contribuindo
+
+Se você quiser contribuir com o projeto, sinta-se à vontade para abrir pull requests ou relatar problemas no [repositório do GitHub](https://github.com/seu-usuario/split-bill-app).
+
+## Licença
+
+Este projeto está sob a licença MIT.
