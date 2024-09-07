@@ -1,25 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CreateProfilePage from './pages/CreateProfilePage';
+import ProfilePage from './pages/ProfilePage';
+import BillInput from './components/BillInput';
+import BillList from './components/BillList';
 
 function App() {
+  const [profiles, setProfiles] = useState<string[]>([]);
+  const [bills, setBills] = useState<{ description: string; amount: number; profile: string }[]>([]);
+  const [activeProfile, setActiveProfile] = useState<string>('');
+
+  const handleAddProfile = (profile: string) => {
+    setProfiles([...profiles, profile]);
+  };
+
+  const handleAddBill = (bill: { description: string; amount: number; profile: string }) => {
+    setBills([...bills, bill]);
+  };
+
+  const handleSelectProfile = (profile: string) => {
+    setActiveProfile(profile);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/create-profile"
+          element={
+            <CreateProfilePage 
+              profiles={profiles}
+              onAddProfile={handleAddProfile}
+              onSelectProfile={handleSelectProfile}
+              activeProfile={activeProfile}
+            />
+          }
+        />
+        <Route
+          path="/profile/:id"
+          element={
+            <ProfilePage 
+              bills={bills}
+              activeProfile={activeProfile} profiles={[]}            />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <div>
+              <h1>Bem-vindo ao Divisor de Contas</h1>
+              <BillInput
+                onAddBill={handleAddBill}
+                profiles={profiles}
+                activeProfile={activeProfile}
+              />
+              <BillList bills={bills} />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
