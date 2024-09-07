@@ -15,18 +15,17 @@ const BillList: React.FC<BillListProps> = ({ bills }) => {
   const share = total / 2;
 
   return (
-    <div>
-      <h2>Contas do Mês</h2>
-      <ul>
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <ul className="mb-4">
         {bills.map((bill, index) => (
-          <li key={index}>
-            {bill.description} - {bill.profile}: R$ {bill.amount.toFixed(2)}
+          <li key={index} className="mb-2">
+            <span className="font-bold">{bill.description}</span> - {bill.profile}: R$ {bill.amount.toFixed(2)}
           </li>
         ))}
       </ul>
-      <div>
+      <div className="text-lg">
         <p>Total: R$ {total.toFixed(2)}</p>
-        <p>Deve a cada um: R$ {share.toFixed(2)}</p>
+        <p>Cada um deve: R$ {share.toFixed(2)}</p>
       </div>
     </div>
   );
