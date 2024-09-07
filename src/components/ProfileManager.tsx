@@ -1,30 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-interface ProfileManagerProps {
+interface ProfileListPageProps {
   profiles: string[];
-  onAddProfile: (profile: string) => void;
-  onSelectProfile: (profile: string) => void;
-  activeProfile: string;
 }
 
-const ProfileManager: React.FC<ProfileManagerProps> = ({ profiles, onAddProfile, onSelectProfile, activeProfile }) => {
-  const [name, setName] = useState('');
-
-  const handleAddProfile = () => {
-    if (name) {
-      onAddProfile(name);
-      setName('');
-    }
-  };
-
+const ProfileListPage: React.FC<ProfileListPageProps> = ({ profiles }) => {
   return (
     <div>
-      <input type="text" placeholder="Nome do perfil" value={name} onChange={(e) => setName(e.target.value)} />
-      <button onClick={handleAddProfile}>Adicionar Perfil</button>
-      <ul>
+      <h2 className="text-2xl font-bold mb-4">Perfis Cadastrados</h2>
+      <ul className="space-y-2">
         {profiles.map((profile, index) => (
-          <li key={index} onClick={() => onSelectProfile(profile)}>
-            {profile} {activeProfile === profile && '(Ativo)'}
+          <li key={index}>
+            <Link
+              to={`/profile/${profile}`}
+              className="block bg-primary text-white p-2 rounded-md hover:bg-opacity-90 transition"
+            >
+              {profile}
+            </Link>
           </li>
         ))}
       </ul>
@@ -32,4 +25,4 @@ const ProfileManager: React.FC<ProfileManagerProps> = ({ profiles, onAddProfile,
   );
 };
 
-export default ProfileManager;
+export default ProfileListPage;
