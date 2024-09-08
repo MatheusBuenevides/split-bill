@@ -1,46 +1,100 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Divisor de Contas
 
-## Available Scripts
+Este projeto é um aplicativo para divisão de contas entre duas pessoas, onde as despesas são divididas por mês e associadas a perfis de usuários. A aplicação agora inclui uma API back-end para armazenar e gerenciar as contas usando MongoDB.
 
-In the project directory, you can run:
+## Funcionalidades
+
+- **Criação de perfis**: Adicione perfis de usuários para associar despesas.
+- **Adição de contas**: Insira contas/despesas e associe-as aos perfis.
+- **Divisão de despesas**: Visualize a divisão das despesas de cada perfil.
+- **API para gerenciamento de contas**: Interaja com o back-end para persistência de dados.
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática ao código.
+- **Tailwind CSS**: Framework CSS para estilização rápida e eficiente.
+- **Express**: Framework para aplicação do servidor.
+- **MongoDB**: Banco de dados para armazenamento de contas.
+- **Node.js**: Ambiente de execução JavaScript no lado do servidor.
+
+## Estrutura do Projeto
+
+```
+split-bill-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.tsx
+│   ├── index.tsx
+├── server/
+│   ├── server.js
+├── tailwind.config.js
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+## Instalação e Execução
+
+**Pré-requisitos**:
+- Node.js (versão 14 ou superior)
+- MongoDB (local ou na nuvem)
+
+### Iniciando o Back-end
+
+1. **Instale as dependências**:
+
+   ```bash
+   npm install
+   ```
+
+2. **Inicie o servidor**:
+
+   ```bash
+   node server/server.js
+   ```
+
+   O servidor estará rodando na porta 5000 por padrão.
+
+### Utilizando a API
+
+- **Adicionar uma conta**:
+
+  ```bash
+  curl -X POST http://localhost:5000/api/bills -H 'Content-Type: application/json' -d '{"description": "Café", "amount": 5, "profile": "Perfil 1", "month": "Setembro"}'
+  ```
+
+- **Obter todas as contas**:
+
+  ```bash
+  curl http://localhost:5000/api/bills
+  ```
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Executa o app no modo de desenvolvimento.
+Abra [http://localhost:3000](http://localhost:3000) para ver o projeto no navegador.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compila a aplicação para produção na pasta `build`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Executa os testes.
 
-### `npm run eject`
+## Contribuindo
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir issues ou submeter pull requests.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Licença
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este projeto está sob a licença MIT.
