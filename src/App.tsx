@@ -62,7 +62,7 @@ const App: React.FC = () => {
               {/* Página de cada perfil individual */}
               <Route
                 path="/profile/:id"
-                element={<ProfilePage bills={bills} activeProfile={activeProfile} profiles={[]} />}
+                element={<ProfilePage bills={bills} profiles={[]} />}
               />
 
               {/* Página para listar todos os perfis */}

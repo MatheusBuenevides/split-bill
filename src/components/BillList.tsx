@@ -12,7 +12,6 @@ interface BillListProps {
 
 const BillList: React.FC<BillListProps> = ({ bills }) => {
   const total = bills.reduce((sum, bill) => sum + bill.amount, 0);
-  const share = total / 2;
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
@@ -25,7 +24,6 @@ const BillList: React.FC<BillListProps> = ({ bills }) => {
       </ul>
       <div className="text-lg">
         <p>Total: R$ {total.toFixed(2)}</p>
-        <p>Cada um deve: R$ {share.toFixed(2)}</p>
       </div>
     </div>
   );
